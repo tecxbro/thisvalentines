@@ -1,0 +1,5 @@
+/.cursor/
+**/.env.local
+*.pid
+
+.pnpm-store/
