@@ -1,2 +1,0 @@
-"""Valentines reels backend package."""
-
