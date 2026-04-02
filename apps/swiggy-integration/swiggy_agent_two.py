@@ -1,12 +1,8 @@
 """
-Swiggy Voice Agent Two — powered by VideoSDK AI Agents.
+Swiggy voice entrypoint using Gemini native audio.
 
-Uses Gemini native audio for the lowest latency voice experience.
-Single model handles STT + LLM + TTS — minimal setup, fastest response.
-Only requires VideoSDK + Google API keys.
-
-Run: python swiggy_agent_two.py
-Then open: https://playground.videosdk.live
+Single model handles STT + LLM + TTS for a lower-latency setup.
+Requires the runtime auth token and Google API key.
 """
 
 from videosdk.agents import (

@@ -240,9 +240,9 @@ class SwiggyMCPServer(MCPServiceProvider):
     """Unified MCP provider for all Swiggy services (Food, Instamart, Dineout).
 
     Connects to all 3 Swiggy MCP endpoints internally and presents a single
-    deduplicated, schema-sanitized tool list to the VideoSDK agent framework.
+    deduplicated, schema-sanitized tool list to the agent runtime.
 
-    Since this is a single MCPServiceProvider instance, the framework's standard
+    Since this is a single MCPServiceProvider instance, the runtime's standard
     add_server() flow works correctly — one provider, one call, no duplicates.
     """
 

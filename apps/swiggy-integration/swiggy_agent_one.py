@@ -1,12 +1,8 @@
 """
-Swiggy Voice Agent One — powered by VideoSDK AI Agents.
+Swiggy voice entrypoint with a multi-provider pipeline.
 
-Multi-provider pipeline: Deepgram STT + Google Gemini LLM + Cartesia TTS.
-Richer voice quality with fine-grained control over each stage.
-Requires VideoSDK + Google + Deepgram + Cartesia API keys.
-
-Run: python swiggy_agent_one.py
-Then open: https://playground.videosdk.live
+Pipeline: Deepgram STT + Google Gemini LLM + Cartesia TTS.
+Requires the runtime auth token plus Google, Deepgram, and Cartesia keys.
 """
 
 from videosdk.agents import (

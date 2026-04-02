@@ -11,11 +11,8 @@ RESET="\033[0m"
 echo ""
 echo -e "${PURPLE}${BOLD}╔══════════════════════════════════════════════════════════════╗${RESET}"
 echo -e "${PURPLE}${BOLD}║                                                              ║${RESET}"
-echo -e "${PURPLE}${BOLD}║   Swiggy Voice Agent — Setup                                 ║${RESET}"
+echo -e "${PURPLE}${BOLD}║   Swiggy Integration — Setup                                 ║${RESET}"
 echo -e "${PURPLE}${BOLD}║   Order food, groceries & book tables by voice               ║${RESET}"
-echo -e "${PURPLE}${BOLD}║                                                              ║${RESET}"
-echo -e "${PURPLE}${BOLD}║   Powered by VideoSDK Voice AI Agent Framework               ║${RESET}"
-echo -e "${PURPLE}${BOLD}║   ${DIM}https://github.com/videosdk-live/agents${RESET}${PURPLE}${BOLD}                    ║${RESET}"
 echo -e "${PURPLE}${BOLD}║                                                              ║${RESET}"
 echo -e "${PURPLE}${BOLD}╚══════════════════════════════════════════════════════════════╝${RESET}"
 echo ""
@@ -59,7 +56,7 @@ echo -e "  Activated: $(which python)"
 # ─── Step 3: Install dependencies ────────────────────────────────────
 echo ""
 echo -e "${PURPLE}[3/6]${RESET} ${BOLD}Installing dependencies...${RESET}"
-echo -e "  ${DIM}This may take a few minutes on first run (downloading Videosdk SDKs Agent Framework and supported plugins, etc.)${RESET}"
+echo -e "  ${DIM}This may take a few minutes on first run while runtime packages and plugins are downloaded.${RESET}"
 echo ""
 
 pip install --upgrade pip
@@ -87,13 +84,13 @@ fi
 if [ "${SKIP_ENV}" != "true" ]; then
     echo -e "  ${BOLD}You'll need API keys from these providers:${RESET}"
     echo ""
-    echo -e "    ${PURPLE}•${RESET} VideoSDK  → ${PURPLE}https://app.videosdk.live${RESET}"
+    echo -e "    ${PURPLE}•${RESET} Runtime auth token (VIDEOSDK_AUTH_TOKEN)"
     echo -e "    ${PURPLE}•${RESET} Google    → ${PURPLE}https://aistudio.google.com/apikey${RESET}"
     echo -e "    ${PURPLE}•${RESET} Deepgram  → ${PURPLE}https://console.deepgram.com${RESET}  ${DIM}(Agent One only)${RESET}"
     echo -e "    ${PURPLE}•${RESET} Cartesia  → ${PURPLE}https://play.cartesia.ai${RESET}      ${DIM}(Agent One only)${RESET}"
     echo ""
 
-    read -rp "  VideoSDK Auth Token: " VIDEOSDK_TOKEN
+    read -rp "  Runtime Auth Token (VIDEOSDK_AUTH_TOKEN): " VIDEOSDK_TOKEN
     read -rp "  Google API Key: " GOOGLE_KEY
     read -rp "  Deepgram API Key (Enter to skip): " DEEPGRAM_KEY
     read -rp "  Cartesia API Key (Enter to skip): " CARTESIA_KEY
@@ -147,10 +144,10 @@ echo -e "${PURPLE}${BOLD}╔═════════════════�
 echo -e "${PURPLE}${BOLD}║  ${GREEN}Setup complete!${RESET}${PURPLE}${BOLD}                                              ║${RESET}"
 echo -e "${PURPLE}${BOLD}╚══════════════════════════════════════════════════════════════╝${RESET}"
 echo ""
-echo -e "${PURPLE}[6/6]${RESET} ${BOLD}Launch Swiggy Voice Agent${RESET}"
+echo -e "${PURPLE}[6/6]${RESET} ${BOLD}Launch Swiggy Integration App${RESET}"
 echo ""
 echo -e "  ${PURPLE}1)${RESET} Agent One — Deepgram STT + Google LLM + Cartesia TTS  ${DIM}(all 4 keys)${RESET}"
-echo -e "  ${PURPLE}2)${RESET} Agent Two — Gemini native audio  ${DIM}(only VideoSDK + Google keys)${RESET}"
+echo -e "  ${PURPLE}2)${RESET} Agent Two — Gemini native audio  ${DIM}(runtime token + Google key)${RESET}"
 echo -e "  ${PURPLE}3)${RESET} Skip — I'll run it later"
 echo ""
 read -rp "  Choose [1/2/3] (default: 1): " agent_choice
@@ -169,15 +166,13 @@ case "$agent_choice" in
         echo -e "    ${PURPLE}# Agent One — Deepgram + Gemini + Cartesia${RESET}"
         echo -e "    python swiggy_agent_one.py"
         echo ""
-        echo -e "    ${PURPLE}# Agent Two — Gemini native audio (VideoSDK + Google keys)${RESET}"
+        echo -e "    ${PURPLE}# Agent Two — Gemini native audio${RESET}"
         echo -e "    python swiggy_agent_two.py"
         echo ""
         echo -e "    ${PURPLE}# Phone/WhatsApp — SIP telephony${RESET}"
         echo -e "    python swiggy_agent_phone.py"
         echo ""
-        echo -e "  A dynamic ${BOLD}VideoSDK Playground${RESET} link will be printed once the agent starts."
-        echo ""
-        echo -e "  ${BOLD}Framework:${RESET} ${PURPLE}https://github.com/videosdk-live/agents${RESET}"
+        echo -e "  A browser link will be printed once the selected runtime starts."
         echo ""
         exit 0
         ;;
@@ -191,7 +186,7 @@ echo ""
 echo -e "  Starting ${BOLD}${PURPLE}${AGENT_NAME}${RESET} ..."
 echo -e "  ${DIM}Swiggy MCP connection may take 1-2 minutes on first participant join${RESET}"
 echo ""
-echo -e "  A dynamic ${BOLD}VideoSDK Playground${RESET} link (with token & meetingId) will appear below."
+echo -e "  A browser link (with token and meetingId) will appear below."
 echo -e "  Open it in your browser to start talking to the agent."
 echo ""
 echo -e "  ${DIM}Press Ctrl+C to stop the agent${RESET}"

@@ -1,17 +1,12 @@
 """
-Swiggy Voice Agent (Phone) — powered by VideoSDK AI Agents.
+Swiggy phone-oriented voice entrypoint.
 
-Registers the agent with VideoSDK's telephony service for
-inbound/outbound phone calls (SIP) and WhatsApp voice calls.
+Registers the agent for inbound and outbound SIP-style telephony flows.
 
 Setup:
-  1. Run `./setup.sh` or `python swiggy_mcp.py` to login to Swiggy
-  2. Configure SIP gateways and routing rules in VideoSDK Dashboard
+  1. Run `./run.sh` or `python swiggy_mcp.py` to log into Swiggy
+  2. Configure the telephony routing used by your runtime account
   3. Run `python swiggy_agent_phone.py`
-
-Docs:
-  - Telephony: https://docs.videosdk.live/ai_agents/ai-phone-agent-quick-start
-  - WhatsApp:  https://docs.videosdk.live/ai_agents/whatsapp-voice-agent-quick-start
 """
 
 import asyncio
