@@ -1,5 +1,10 @@
 /.cursor/
 **/.env.local
 *.pid
+.DS_Store
+node_modules/
+dist/
+.venv-facetime-check/
+backend/__pycache__/
 
 .pnpm-store/
