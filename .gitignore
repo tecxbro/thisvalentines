@@ -3,3 +3,7 @@
 *.pid
 
 .pnpm-store/
+.DS_Store
+node_modules/
+dist/
+.venv-facetime-check/
