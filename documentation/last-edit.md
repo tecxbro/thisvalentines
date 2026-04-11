@@ -4,6 +4,27 @@ Summary of the most recent interaction.
 
 ---
 
+## [2026-04-08] Swiggy docs + code commenting pass
+
+**What was done:**
+- Added a new Swiggy-specific documentation folder under `documentation/swiggy/`.
+- Documented the Swiggy architecture split between:
+  - legacy direct-tool VideoSDK runtime
+  - hosted LemonSlice transcript-sidecar runtime
+- Added a file-structure map for the app-owned Swiggy surface and a runtime-flow doc explaining MCP usage, transcript routing, state, Mistral’s role, confirmation behavior, and current limitations.
+- Updated the main documentation index so the Swiggy docs are discoverable from `documentation/README.md`.
+- Applied a comment-only pass across the app-owned Swiggy source surface so each major file, function, class, component, and non-obvious flow is easier to review.
+
+**Files changed:**
+- `documentation/README.md`
+- `documentation/last-edit.md`
+- `documentation/swiggy/README.md`
+- `documentation/swiggy/file-structure.md`
+- `documentation/swiggy/runtime-flow.md`
+- `apps/swiggy-integration/**` app-owned source files only (legacy runtime, shared MCP client, hosted backend, hosted frontend, run/setup script)
+
+---
+
 ## [2026-03-01] STT fix: voice ID vs API key (Shirley)
 
 **What was done:**

@@ -1,3 +1,9 @@
+#
+# Interactive setup helper for the legacy Swiggy runtime.
+# This script bootstraps a local venv, installs runtime dependencies,
+# collects required API keys, performs the one-time Swiggy OAuth login,
+# and optionally launches one of the legacy entrypoints.
+#
 set -e
 
 BOLD="\033[1m"

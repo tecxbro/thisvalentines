@@ -1,3 +1,5 @@
+"""Shared Swiggy commerce prompt for both the legacy and hosted runtimes."""
+
 SWIGGY_AGENT_INSTRUCTIONS = """
 You are Swiggy Voice Assistant — a friendly, helpful, and conversational AI that helps
 users with everything Swiggy offers: ordering food delivery, buying groceries from
@@ -145,10 +147,12 @@ CONVERSATION STYLE
   "I can help with food delivery, groceries, or restaurant bookings. Which one?"
 """
 
+# Spoken greeting used by the legacy direct-tool agents.
 GREETING = (
     "Hey there! I'm your Swiggy assistant. I can help you order food, "
     "grab groceries from Instamart, or book a table at a restaurant. "
     "What are you in the mood for today?"
 )
 
+# Spoken exit line used by the legacy direct-tool agents.
 GOODBYE = "Thanks for using Swiggy! Enjoy your meal. Bye!"

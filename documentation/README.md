@@ -11,6 +11,16 @@ This folder contains living documentation maintained by the Cursor agent. It is 
 | [project-state.md](./project-state.md) | Current state of the project, architecture, and known limitations |
 | [last-edit.md](./last-edit.md) | Summary of the most recent edit/interaction |
 
+## Swiggy Docs
+
+Swiggy-specific architecture and file layout documentation lives under [`documentation/swiggy/`](./swiggy/README.md).
+
+| File | Purpose |
+|------|---------|
+| [swiggy/README.md](./swiggy/README.md) | Swiggy architecture overview and runtime split |
+| [swiggy/file-structure.md](./swiggy/file-structure.md) | File-by-file map of the app-owned Swiggy surface |
+| [swiggy/runtime-flow.md](./swiggy/runtime-flow.md) | Legacy vs hosted runtime flow, state, and limitations |
+
 ## Update Policy
 
 The Cursor agent should update these files after every significant interaction:

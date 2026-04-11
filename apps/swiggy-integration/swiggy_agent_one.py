@@ -34,20 +34,26 @@ pre_download_model()
 
 
 class SwiggyVoiceAgent(Agent):
+    """Legacy voice agent that mounts the full Swiggy MCP tool catalog."""
+
     def __init__(self):
+        """Configure the agent with the shared Swiggy instructions and tools."""
         super().__init__(
             instructions=SWIGGY_AGENT_INSTRUCTIONS,
             mcp_servers=build_swiggy_mcp_servers(),
         )
 
     async def on_enter(self):
+        """Greet the user when the legacy agent joins a room."""
         await self.session.say(GREETING)
 
     async def on_exit(self):
+        """Close the session with a short spoken goodbye."""
         await self.session.say(GOODBYE)
 
 
 async def entrypoint(ctx: JobContext):
+    """Boot the multi-provider speech pipeline and attach the Swiggy agent."""
     agent = SwiggyVoiceAgent()
 
     pipeline = Pipeline(
@@ -70,6 +76,7 @@ async def entrypoint(ctx: JobContext):
 
 
 def make_context() -> JobContext:
+    """Create the default playground room configuration for local testing."""
     return JobContext(
         room_options=RoomOptions(
             name="Swiggy Voice Agent",
@@ -79,6 +86,7 @@ def make_context() -> JobContext:
 
 
 if __name__ == "__main__":
+    """Run the legacy multi-provider Swiggy agent as a worker job."""
     job = WorkerJob(
         entrypoint=entrypoint,
         jobctx=make_context,

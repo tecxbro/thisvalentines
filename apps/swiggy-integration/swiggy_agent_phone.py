@@ -34,20 +34,26 @@ logging.basicConfig(
 
 
 class SwiggyPhoneAgent(Agent):
+    """Legacy telephony-oriented Swiggy agent with direct MCP tool access."""
+
     def __init__(self):
+        """Configure the phone agent with the shared prompt and tool catalog."""
         super().__init__(
             instructions=SWIGGY_AGENT_INSTRUCTIONS,
             mcp_servers=build_swiggy_mcp_servers(),
         )
 
     async def on_enter(self):
+        """Greet the caller when the phone session starts."""
         await self.session.say(GREETING)
 
     async def on_exit(self):
+        """Close the call with a short spoken goodbye."""
         await self.session.say(GOODBYE)
 
 
 async def entrypoint(ctx: JobContext):
+    """Boot the phone-oriented Gemini realtime pipeline."""
     model = GeminiRealtime(
         model="gemini-3.1-flash-live-preview",
         config=GeminiLiveConfig(
@@ -71,10 +77,12 @@ async def entrypoint(ctx: JobContext):
 
 
 def make_context() -> JobContext:
+    """Create the minimal room context required for telephony registration."""
     return JobContext(room_options=RoomOptions())
 
 
 if __name__ == "__main__":
+    """Register and run the telephony-capable Swiggy worker locally."""
     options = Options(
         agent_id="SwiggyVoiceAgent",
         register=True,
